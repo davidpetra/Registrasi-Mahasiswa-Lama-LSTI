@@ -1,0 +1,608 @@
+{
+  "openapi" : "3.0.0",
+  "info" : {
+    "title" : "Registrasi Mahasiswa Lama",
+    "description" : "Service yang melayani registrasi mahasiswa mulai dari pengelolaan beasiswa sampai penyampaian laporan keuangan",
+    "contact" : {
+      "email" : "grub8LSTI@gmail.com"
+    },
+    "license" : {
+      "name" : "Apache 2.0",
+      "url" : "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version" : "1.0.0"
+  },
+  "servers" : [ {
+    "url" : "http://178.128.104.74/herregistrasimahasiswalama"
+  } ],
+  "tags" : [ {
+    "name" : "beasiswa",
+    "description" : "data beasiswa mahasiswa"
+  }, {
+    "name" : "mahasiswa",
+    "description" : "data mahasiswa"
+  }, {
+    "name" : "tagihan",
+    "description" : "data tagihan mahasiswa"
+  } ],
+  "paths" : {
+    "/beasiswa" : {
+      "get" : {
+        "tags" : [ "beasiswa" ],
+        "summary" : "Menampilkan seluruh data beasiswa yang disediakan",
+        "description" : "Menampilkan seluruh data beasiswa yang disediakan",
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan seluruh data beasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Beasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          },
+          "404" : {
+            "description" : "Data beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/beasiswa/hasil" : {
+      "get" : {
+        "tags" : [ "beasiswa" ],
+        "summary" : "Menampilkan seluruh data penerima beasiswa",
+        "description" : "Menampilkan seluruh data penerima beasiswa",
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan seluruh data penerima beasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          },
+          "404" : {
+            "description" : "Data penerima beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/beasiswa/hasil/{id}" : {
+      "get" : {
+        "tags" : [ "beasiswa" ],
+        "summary" : "Menampilkan data penerima beasiswa berdasarkan id mahasiswa",
+        "description" : "Menampilkan data penerima beasiswa berdasarkan id mahasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_mahasiswa",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan data penerima beasiswa berdasarkan id mahasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Data penerima beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/beasiswa/{id}/hasil" : {
+      "get" : {
+        "tags" : [ "beasiswa" ],
+        "summary" : "Menampilkan data penerima beasiswa berdasarkan id beasiswa",
+        "description" : "Menampilkan data penerima beasiswa berdasarkan id beasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_beasiswa",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan data penerima beasiswa berdasarkan id beasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Data penerima beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/beasiswa/{id}" : {
+      "get" : {
+        "tags" : [ "beasiswa" ],
+        "summary" : "Menampilkan data beasiswa berdasarkan id beasiswa",
+        "description" : "Menampilkan data beasiswa berdasarkan id beasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_beasiswa",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan data beasiswa berdasarkan id beasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Beasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Data beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/mahasiswa" : {
+      "get" : {
+        "tags" : [ "mahasiswa" ],
+        "summary" : "Menampilkan seluruh data mahasiswa yang disediakan",
+        "description" : "Menampilkan seluruh data mahasiswa yang disediakan",
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan seluruh data mahasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          },
+          "404" : {
+            "description" : "Data beasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      }
+    },
+    "/mahasiswa/{id}" : {
+      "get" : {
+        "tags" : [ "mahasiswa" ],
+        "summary" : "Menampilkan data mahasiswa berdasarkan id mahasiswa",
+        "description" : "Menampilkan data mahasiswa berdasarkan id mahasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_mahasiswa",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan data mahasiswa berdasarkan id mahasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Data mahasiswa yang kamu cari tidak ditemukan"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "mahasiswa" ],
+        "summary" : "Melakukan edit data mahasiswa",
+        "description" : "Melakukan edit data mahasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_mahasiswa",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Mahasiswa"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil mengubah data mahasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Mahasiswa"
+                  }
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      }
+    },
+    "/tagihan" : {
+      "get" : {
+        "tags" : [ "tagihan" ],
+        "summary" : "Menampilkan seluruh data tagihan yang disediakan",
+        "description" : "Menampilkan seluruh data tagihan yang disediakan",
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan seluruh data tagihan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Tagihan"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          },
+          "404" : {
+            "description" : "Data tagihan yang kamu cari tidak ditemukan"
+          }
+        }
+      },
+      "post" : {
+        "tags" : [ "tagihan" ],
+        "summary" : "Membuat data tagihan",
+        "description" : "Membuat data tagihan",
+        "requestBody" : {
+          "description" : "Data tagihan",
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Tagihan"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil membuat data tagihan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Tagihan"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          }
+        }
+      }
+    },
+    "/tagihan/{id}" : {
+      "get" : {
+        "tags" : [ "tagihan" ],
+        "summary" : "Menampilkan tagihan berdasarkan id tagihan",
+        "description" : "Menampilkan tagihan berdasarkan id tagihan",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_tagihan",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan tagihan mahasiswa",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Tagihan"
+                  }
+                }
+              }
+            }
+          },
+          "404" : {
+            "description" : "Not found"
+          }
+        }
+      },
+      "put" : {
+        "tags" : [ "tagihan" ],
+        "summary" : "Mengubah status pembayaran dari mahasiswa",
+        "description" : "Mengubah status pembayaran dari mahasiswa",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_tagihan",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "requestBody" : {
+          "content" : {
+            "application/json" : {
+              "schema" : {
+                "$ref" : "#/components/schemas/Tagihan"
+              }
+            }
+          }
+        },
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil mengubah tagihan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Tagihan"
+                  }
+                }
+              }
+            }
+          },
+          "405" : {
+            "description" : "Invalid input"
+          }
+        }
+      },
+      "delete" : {
+        "tags" : [ "tagihan" ],
+        "summary" : "Menghapus tagihan",
+        "description" : "Menghapus tagihan",
+        "parameters" : [ {
+          "name" : "id",
+          "in" : "path",
+          "description" : "id_tagihan",
+          "required" : true,
+          "style" : "simple",
+          "explode" : false,
+          "schema" : {
+            "type" : "integer"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menghapus tagihan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Tagihan"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad request"
+          }
+        }
+      }
+    },
+    "/laporan" : {
+      "get" : {
+        "tags" : [ "laporan" ],
+        "summary" : "Menampilkan laporan keuangan",
+        "description" : "Menampilkan laporan keuangan berdasarkan pembayaran UKT mahasiswa",
+        "responses" : {
+          "200" : {
+            "description" : "Berhasil menampilkan laporan keuangan",
+            "content" : {
+              "application/json" : {
+                "schema" : {
+                  "type" : "array",
+                  "items" : {
+                    "$ref" : "#/components/schemas/Laporan"
+                  }
+                }
+              }
+            }
+          },
+          "400" : {
+            "description" : "Bad Requests"
+          }
+        }
+      }
+    }
+  },
+  "components" : {
+    "schemas" : {
+      "Beasiswa" : {
+        "type" : "object",
+        "properties" : {
+          "id_beasiswa" : {
+            "type" : "integer"
+          },
+          "nama_beasiswa" : {
+            "type" : "string"
+          },
+          "jenis" : {
+            "type" : "string"
+          },
+          "deskripsi" : {
+            "type" : "string"
+          },
+          "pemberi" : {
+            "type" : "string"
+          },
+          "deadline" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Mahasiswa" : {
+        "type" : "object",
+        "properties" : {
+          "id_mahasiswa" : {
+            "type" : "integer"
+          },
+          "nama_mahasiswa" : {
+            "type" : "string"
+          },
+          "nim" : {
+            "type" : "string"
+          },
+          "fakultas" : {
+            "type" : "string"
+          },
+          "jurusan" : {
+            "type" : "string"
+          },
+          "semester" : {
+            "type" : "integer"
+          },
+          "id_beasiswa" : {
+            "type" : "integer"
+          },
+          "terima_beasiswa" : {
+            "type" : "boolean"
+          },
+          "besaran_beasiswa" : {
+            "type" : "integer"
+          },
+          "kelompok_ukt" : {
+            "type" : "string"
+          },
+          "besaran_ukt" : {
+            "type" : "integer"
+          }
+        }
+      },
+      "Tagihan" : {
+        "type" : "object",
+        "properties" : {
+          "id_tagihan" : {
+            "type" : "integer"
+          },
+          "id_mahasiswa" : {
+            "type" : "integer"
+          },
+          "jumlah_bayar" : {
+            "type" : "integer"
+          },
+          "status_bayar" : {
+            "type" : "boolean"
+          },
+          "semester" : {
+            "type" : "integer"
+          },
+          "tahun" : {
+            "type" : "string"
+          },
+          "batas_bayar" : {
+            "type" : "string"
+          }
+        }
+      },
+      "Laporan" : {
+        "type" : "object",
+        "properties" : {
+          "tahun" : {
+            "type" : "string"
+          },
+          "jumlah_bayar" : {
+            "type" : "integer"
+          },
+          "sudah_bayar" : {
+            "type" : "integer"
+          },
+          "belum_bayar" : {
+            "type" : "integer"
+          }
+        }
+      }
+    }
+  }
+}

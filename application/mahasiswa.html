@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+
+  <title>Mahasiswa</title>
+
+  <script src="script/mahasiswa.js"></script>
+
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,300,400italic,700,900' rel='stylesheet' type='text/css'>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Techie Bootstrap 3 skin">
+  <meta name="keywords" content="bootstrap 3, skin, flat">
+  <meta name="author" content="bootstraptaste">
+
+  <!-- Bootstrap css -->
+  <link href="assets/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/bootstrap.techie.css" rel="stylesheet">
+
+
+  <!-- Docs Custom styles -->
+  <style>
+    body,
+    html {
+      overflow-x: hidden
+    }
+
+    body {
+      padding: 6px
+    }
+
+    footer {
+      border-top: 1px solid #ddd;
+      padding: 30px;
+      margin-top: 50px
+    }
+
+    .row>[class*=col-] {
+      margin-bottom: 40px
+    }
+
+    .navbar-container {
+      position: relative;
+      min-height: 100px
+    }
+
+    .navbar.navbar-fixed-bottom,
+    .navbar.navbar-fixed-top {
+      position: absolute;
+      top: 0px;
+      z-index: 0
+    }
+
+    .navbar.navbar-fixed-bottom .container,
+    .navbar.navbar-fixed-top .container {
+      max-width: 100%
+    }
+
+    .btn-group {
+      margin-bottom: 10px
+    }
+
+    .form-inline input[type=password],
+    .form-inline input[type=text],
+    .form-inline select {
+      width: 180px
+    }
+
+    .input-group {
+      margin-bottom: 10px
+    }
+
+    .pagination {
+      margin-top: 0px
+    }
+
+    .navbar-inverse {
+      margin: 0
+    }
+
+    td .label {
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row">
+      <!-- Navbar -->
+      <div class="col-sm-12 col-lg-12">
+            <nav class="navbar navbar-inverse" role="navigation">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex2-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                  </button>
+                <a class="navbar-brand" href="#"><b>Keuangan ITB</b></a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse navbar-ex2-collapse">
+                <ul class="nav navbar-nav">
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Beasiswa <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <!--<li class="divider"></li>-->
+                      <li class="dropdown-header"></li>
+                      <li><a href="index.html">Program beasiswa</a></li>
+                      <li><a href="penerima.html">Penerima beasiswa</a></li>
+                    </ul>
+                  </li>
+                  <li class="active"><a href="#">Mahasiswa</a></li>
+                  <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Tagihan <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                      <!--<li class="divider"></li>-->
+                      <li class="dropdown-header"></li>
+                      <li><a href="tagihan.html">Semua Tagihan</a></li>
+                      <li><a href="tagihanBaru.html">Buat Tagihan Baru</a></li>
+                    </ul>
+                  </li>
+                  <li><a href="laporan.html">Laporan</a></li>
+                </ul>
+              </div>
+              <!-- /.navbar-collapse -->
+            </nav>
+
+          </div>
+    </div>
+    <!-- Navs done -->
+
+    <div class="row">
+        <div class="col-sm-12 col-lg-12">
+          <h2>Daftar Mahasiswa</h2>
+            <table class="table table-striped" data-effect="fade">
+              <thead>
+                <tr>
+                  <th>No</th>
+                  <th>ID Mahasiswa</th>
+                  <th>Nama</th>
+                  <th>NIM</th>
+                  <th>Fakultas</th>
+                  <th>Jurusan</th>
+                  <th>Semester</th>
+                  <th>ID Beasiswa</th>
+                  <th>Terima Beasiswa</th>
+                  <th>Besaran Beasiswa</th>
+                  <th>Kelompok UKT</th>
+                  <th>Besaran UKT</th>
+                </tr>
+              </thead>
+              <tbody id="tabelmahasiswa">
+              </tbody>
+            </table>
+        </div>
+    </div>
+  <!-- /container -->
+<!--
+  <footer class="text-center">
+    <p>&copy; Techie Skin</p>
+    <div class="credits">
+
+        //All the links in the footer should remain intact.
+        //You can delete the links only if you purchased the pro version.
+        //Licensing information: https://bootstrapmade.com/license/
+        //Purchase the pro version form: https://bootstrapmade.com/buy/?theme=Techie
+
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+    </div>
+  </footer>
+-->
+
+  <!-- Main Scripts-->
+  <script src="assets/js/jquery.js"></script>
+  <script src="assets/js/bootstrap.min.js"></script>
+
+  <!-- Bootstrap 3 has typeahead optionally -->
+  <script src="assets/js/typeahead.min.js"></script>
+  <script>
+    window.onload = loadData();
+  </script>
+
+</body>
+
+</html>
